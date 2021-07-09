@@ -9,9 +9,9 @@ namespace workingwithfiles
     {
         static void Main(string[] args)
         {
-            var a = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.*", SearchOption.TopDirectoryOnly);
+            var myCurrentLocation = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.*", SearchOption.TopDirectoryOnly);
             var myListOfTextFiles = new List<string>();
-            foreach (var item in a)
+            foreach (var item in myCurrentLocation)
             {
                 if (item.ToLower().Contains("txt"))
                 {
