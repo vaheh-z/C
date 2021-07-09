@@ -9,7 +9,7 @@ namespace workingwithfiles
     {
         static void Main(string[] args)
         {
-            var myCurrentLocation = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.*", SearchOption.TopDirectoryOnly);
+            var myCurrentLocation = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.*", SearchOption.AllDirectories);
             var myListOfTextFiles = new List<string>();
             foreach (var item in myCurrentLocation)
             {
