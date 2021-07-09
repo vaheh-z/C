@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+
+namespace workingwithfiles
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var a = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.*", SearchOption.TopDirectoryOnly);
+            var myListOfTextFiles = new List<string>();
+            foreach (var item in a)
+            {
+                if (item.ToLower().Contains("txt"))
+                {
+                    myListOfTextFiles.Add(item);
+                }
+            }
+
+            foreach (var item in myListOfTextFiles)
+            {
+                var content = File.ReadAllText(item);
+                var longestword = "";
+                var longestWordLength = 0;
+                foreach (var word in content.Trim().Split("\r\n"))
+                {
+                    if (word.Length > longestWordLength)
+                    {
+                        longestword = word;
+                        longestWordLength = longestword.Length;
+                    }
+                }
+                Console.WriteLine("longest word: {0}", longestword);
+            }
+        }
+    }
+}
